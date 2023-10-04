@@ -1,4 +1,11 @@
 import {Example} from './Example';
+import { Button } from "@/Components/ui/button";
+import { Label } from "@/Components/ui/label";
+import  Page  from "./Page"
+import  CustomFormValidation  from "./CustomFormValidation"
+import  Login  from "./Login"
+import  Template  from "./Template"
+import  SignInSide  from "./SignInSide"
 
 // function Example() {
 //     return (
@@ -17,6 +24,18 @@ import {Example} from './Example';
 // }
 
 export default function Home() {
-    const heading = "Laravel 9 Vite  with React JS now";
-    return <div> {heading} <Example/></div>;
+    const heading = "Laminar X Web change";
+        return <div>  
+            {/* {heading}  */}
+        {/* <Example/>
+        <Button>Click me</Button>
+        <Label className="sr-only" htmlFor="email">
+              Email
+            </Label> */}
+            {/* <Page/> */}
+            {/* <CustomFormValidation/> */}
+            {/* <Login/> */}
+            {/* <Template/> */}
+            <SignInSide/>
+        </div>;
 }

@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import  {Link}  from 'react-router-dom';
 import {Example} from './Example';
 import { Button } from "@/Components/ui/button";
 import { Label } from "@/Components/ui/label";
@@ -5,37 +7,27 @@ import  Page  from "./Page"
 import  CustomFormValidation  from "./CustomFormValidation"
 import  Login  from "./Login"
 import  Template  from "./Template"
+// import Link from '@mui/material/Link';
 import  SignInSide  from "./SignInSide"
+import  SignInTwo  from "./SignInTwo"
+import  PageThree  from "./PageThree"
 
-// function Example() {
-//     return (
-//         <div className="container">
-//             <div className="row justify-content-center">
-//                 <div className="col-md-8">
-//                     <div className="card">
-//                         <div className="card-header">Example Component</div>
 
-//                         <div className="card-body">I'm an example component!</div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
 
 export default function Home() {
     const heading = "Laminar X Web change";
-        return <div>  
-            {/* {heading}  */}
-        {/* <Example/>
-        <Button>Click me</Button>
-        <Label className="sr-only" htmlFor="email">
-              Email
-            </Label> */}
-            {/* <Page/> */}
-            {/* <CustomFormValidation/> */}
-            {/* <Login/> */}
-            {/* <Template/> */}
-            <SignInSide/>
-        </div>;
+        return (  
+            <div> 
+               
+            <BrowserRouter>
+         
+<Routes>
+    <Route path="/" element={<SignInSide/>}/>
+    <Route path="/log" element={<Login/>}/>
+    <Route path="/two" element={<SignInTwo/>}/>
+    <Route path="/three" element={<PageThree/>}/>
+</Routes>
+</BrowserRouter>
+            </div>
+         );
 }

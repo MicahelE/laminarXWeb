@@ -125,7 +125,7 @@
     position: absolute;
     font-size: xx-large;
     font-weight: 700;
-    left: 20vw;
+    left: 10vw;
   }
 
   .css-164r41r {
@@ -141,4 +141,17 @@
     height: 100%;
   background-color: rgba(21, 101, 216, 0.9);
 
+}
+
+.header{
+  position: absolute;
+  left: 10vw;
+  top: 7vh;
+  color: white;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.imag{
+  display: flex;
 }

@@ -191,17 +191,58 @@ export default function Dashboard() {
             alignItems: 'center',
           }}
         >
-           <div className='text-start'> <CustomLink to="/two"><KeyboardArrowLeftIcon/> </CustomLink>Back <span className='text-end'>Next <CustomLink to="/four"><ChevronRightIcon/> </CustomLink></span>  </div> 
+           <div className='text-start'> <CustomLink to="/three"><KeyboardArrowLeftIcon/> </CustomLink>Back <span className='text-end'>Next <CustomLink to="/five"><ChevronRightIcon/> </CustomLink></span>  </div> 
            {/* <div className='text-end'>Next <CustomLink to="/four"><ChevronRightIcon/> </CustomLink></div>  */}
-          <Typography component="h1" variant="h4">
+          {/* <Typography component="h1" variant="h4">
           Let’s get Started! 
-          </Typography>
-          <Typography component="h1" variant="h5">
-          What’s your name?
+          </Typography> */}
+          <Typography component="h3" variant="h5">
+          What is the name of your business?
           </Typography>
           <Box component="form" sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}> */}
               <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="busName"
+                  required
+                //   fullWidth
+                  id="busName"
+                  label="Business Name"
+                  placeholder="Please enter business name"
+                  autoFocus
+                />
+              </Grid>
+            
+              <Typography component="h3" variant="h5">
+              How is your business structured?
+          </Typography>
+          <div className= 'imag'>
+            <img src="http://127.0.0.1:5173/resources/img/image 10.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/image 11.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/image 12.png" alt="" />
+          </div>
+
+          <Typography component="h3" variant="h5">
+          Please enter your business number(BN) registered 
+with the CRA.
+          </Typography>
+          
+          <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                //   fullWidth
+                  id="middleName"
+                  label="middle Name"
+                  name="middleName"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Typography component="h3" variant="h5">
+              Where is your business located?
+          </Typography>
+          <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -222,25 +263,81 @@ export default function Dashboard() {
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                //   fullWidth
+                  id="firstName"
+                  label="First Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                 //   fullWidth
-                  id="lastName"
-                  label="lastName"
-                  name="lastName"
-                  autoComplete="lastName"
+                  id="middleName"
+                  label="middle Name"
+                  name="middleName"
+                  autoComplete="family-name"
+                />
+              </Grid><Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="middleName"
+                  label="middle Name"
+                  name="middleName"
+                  autoComplete="family-name"
                 />
               </Grid>
-              <Typography component="h1" variant="h5">
-              What best describes your role in the company?
+              </Grid>
+              <Typography component="h3" variant="h5">
+              What is your businesses primary activity?
+          </Typography>
+          
+          <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="middleName"
+                  label="middle Name"
+                  name="middleName"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Typography component="h3" variant="h5">
+              Does your business conduct its main activities 
+within Canada?
           </Typography>
           <div className= 'imag'>
-            <img src="http://127.0.0.1:5173/resources/img/image 7.png" alt="" />
-            <img src="http://127.0.0.1:5173/resources/img/image 8.png" alt="" />
-            <img src="http://127.0.0.1:5173/resources/img/image 9.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/image 3.png" alt="" />
           </div>
-            </Grid>
+
+          <Box> <Button
+              type="submit"
+            //   fullWidth
+              variant=""
+              sx={{ mt: 3, mb: 2, boxShadow: 3 }}
+            >
+             Yes
+            </Button>
+            </Box>
+
+           <Box> <Button
+              type="submit"
+            //   fullWidth
+              variant=""
+              sx={{ mt: 3, mb: 2, boxShadow: 3 }}
+            >
+             No
+            </Button>
+            </Box>
+            {/* </Grid> */}
+            <hr />
+            
             <Button
               type="submit"
             //   fullWidth
@@ -261,7 +358,28 @@ export default function Dashboard() {
               {/* Recent Orders */}
               
             </Grid>
-           
+            <Paper>
+                <Box 
+                // sx={{alignItems: 'flex-end'   }}
+                >
+                <Button
+              type="submit"
+            //   fullWidth
+              variant=""
+              sx={{ mt: 2, mb: 2, boxShadow: 3 }}
+            >
+            <KeyboardArrowLeftIcon/>
+            </Button>   Back  
+            <Button className='push'
+              type="submit"
+            //   fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2  }}
+            >
+             Continue
+            </Button>
+            </Box>
+            </Paper>
           </Container>
         </Box>
       </Box>

@@ -191,65 +191,29 @@ export default function Dashboard() {
             alignItems: 'center',
           }}
         >
-           <div className='text-start'> <CustomLink to="/two"><KeyboardArrowLeftIcon/> </CustomLink>Back <span className='text-end'>Next <CustomLink to="/four"><ChevronRightIcon/> </CustomLink></span>  </div> 
+           <div className='text-start'> <CustomLink to="/five"><KeyboardArrowLeftIcon/> </CustomLink>Back <span className='text-end'>Next <CustomLink to="/seven"><ChevronRightIcon/> </CustomLink></span>  </div> 
            {/* <div className='text-end'>Next <CustomLink to="/four"><ChevronRightIcon/> </CustomLink></div>  */}
-          <Typography component="h1" variant="h4">
+          {/* <Typography component="h1" variant="h4">
           Let’s get Started! 
+          </Typography> */}
+          <Typography component="h3" variant="h5">
+          Let’s connect your bank account.
           </Typography>
-          <Typography component="h1" variant="h5">
-          What’s your name?
+
+          <Typography component="h6" variant="h6">
+          Please select your bank.
           </Typography>
-          <Box component="form" sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                //   fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                //   fullWidth
-                  id="middleName"
-                  label="middle Name"
-                  name="middleName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                //   fullWidth
-                  id="lastName"
-                  label="lastName"
-                  name="lastName"
-                  autoComplete="lastName"
-                />
-              </Grid>
-              <Typography component="h1" variant="h5">
-              What best describes your role in the company?
-          </Typography>
+          <Box>
           <div className= 'imag'>
-            <img src="http://127.0.0.1:5173/resources/img/image 7.png" alt="" />
-            <img src="http://127.0.0.1:5173/resources/img/image 8.png" alt="" />
-            <img src="http://127.0.0.1:5173/resources/img/image 9.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/Rectangle 34.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/Rectangle 35.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/Rectangle 36.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/Rectangle 37.png" alt="" />
+            </div>
+            <div className= 'imag'>
+            <img src="http://127.0.0.1:5173/resources/img/Rectangle 38.png" alt="" />
+            <img src="http://127.0.0.1:5173/resources/img/Rectangle 39.png" alt="" />
           </div>
-            </Grid>
-            <Button
-              type="submit"
-            //   fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-             Continue
-            </Button>
-            
           </Box>
         </Box>
         

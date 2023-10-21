@@ -34,13 +34,9 @@ jobs:
 
         # Build Docker Image
         docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml build
-
-        echo "Save Docker Image to a tar file"
-
+        
         # Save Docker Image to a tar file
         docker save -o $IMAGE_TAR_NAME.tar laminarx-web
-
-        echo "Transfer Docker image tar to the remote server"
 
         # Transfer Docker image tar to the remote server
         scp -i $SSH_KEY_PEM_FILE_NAME.pem -o StrictHostKeyChecking=no $IMAGE_TAR_NAME.tar $USER@$HOST:~

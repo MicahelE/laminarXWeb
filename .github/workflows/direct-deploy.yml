@@ -1,0 +1,52 @@
+# NOTE: In the future, consideration to the employment of a container registry (such as AWS' ECR) should be made. Rollback capability in production is requisite!
+# NOTE: Eventually, set 'StrictHostKeyChecking=yes'. Security hygiene.
+
+
+name: Deploy Docker Image with Docker Compose
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@master
+      
+    - name: Build and deploy Docker image using Docker Compose
+      env:
+        USER: ${{ secrets.USER }}
+        HOST: ${{ secrets.HOST }}
+        SSH_KEY_PEM: ${{ secrets.SSH_KEY_PEM }}
+        SSH_KEY_PEM_FILE_NAME: private_key
+        COMPOSE_PROJECT_NAME: app
+        DOCKER_COMPOSE_FILE: docker-compose
+        IMAGE_TAR_NAME: docker-compose-image
+      run: |
+        set -e # Exit on error
+
+        # Setup SSH
+        echo "$SSH_KEY_PEM" > $SSH_KEY_PEM_FILE_NAME.pem
+        chmod 600 $SSH_KEY_PEM_FILE_NAME.pem
+
+        # Build Docker Image
+        docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml build
+
+        # Save Docker Image to a tar file
+        docker save $(docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml config --services) > $IMAGE_TAR_NAME.tar
+
+        # Transfer Docker image tar to the remote server
+        scp -i $SSH_KEY_PEM_FILE_NAME.pem -o StrictHostKeyChecking=no $IMAGE_TAR_NAME.tar $USER@$HOST:~
+
+        # Load the Docker images and use docker-compose to run on the remote server
+        ssh -i $SSH_KEY_PEM_FILE_NAME.pem -o StrictHostKeyChecking=no $USER@$HOST "
+          docker load < $IMAGE_TAR_NAME.tar && \
+          docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml down && \
+          docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml up -d
+        "
+
+        # Cleanup locally
+        rm -f $SSH_KEY_PEM_FILE_NAME.pem

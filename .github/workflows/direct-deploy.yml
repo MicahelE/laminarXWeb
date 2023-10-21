@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@deployment-docker-temporary
+      uses: actions/checkout@master
       
     - name: Build and deploy Docker image using Docker Compose
       env:

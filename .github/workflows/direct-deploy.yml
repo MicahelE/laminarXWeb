@@ -36,6 +36,8 @@ jobs:
         docker-compose -f $DOCKER_COMPOSE_FILE.yml build app
         docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml build
 
+        echo "Save Docker Image to a tar file"
+
         # Save Docker Image to a tar file
         docker save $(docker-compose -p $COMPOSE_PROJECT_NAME -f $DOCKER_COMPOSE_FILE.yml config --services) > $IMAGE_TAR_NAME.tar
 

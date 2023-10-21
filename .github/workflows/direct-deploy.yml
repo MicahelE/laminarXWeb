@@ -7,14 +7,14 @@ name: Deploy Docker Image with Docker Compose
 on:
   push:
     branches:
-      - master
+      - deployment-docker-temporary
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@master
+      uses: actions/checkout@deployment-docker-temporary
       
     - name: Build and deploy Docker image using Docker Compose
       env:

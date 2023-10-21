@@ -22,7 +22,7 @@ jobs:
         HOST: ${{ secrets.HOST }}
         SSH_KEY_PEM: ${{ secrets.SSH_KEY_PEM }}
         SSH_KEY_PEM_FILE_NAME: private_key
-        COMPOSE_PROJECT_NAME: app
+        COMPOSE_PROJECT_NAME: laminarx-web
         DOCKER_COMPOSE_FILE: docker-compose
         IMAGE_TAR_NAME: docker-compose-image
       run: |
